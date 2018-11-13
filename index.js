@@ -31,6 +31,7 @@ var app = express();
 
 app.get('/', function(req, res){
     console.log('hello world');
+    res.send('express success');
 });
 
 var server = app.listen(1337,function(){
