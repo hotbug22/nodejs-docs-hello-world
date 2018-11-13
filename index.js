@@ -8,7 +8,7 @@ app.engine('html', require('ejs').renderFile);
 //main page
 app.get('/', function(req, res){
     console.log('hello world');
-    res.send('express success');
+    res.render('main')
 });
 
 //get api by gyul year
@@ -17,9 +17,8 @@ app.get('/:gyul_year', function(req, res){
     var johe_gyul_year = req.params.gyul_year;
     console.log(johe_gyul_year);
   
-    res.render('index', {
-        title: "yudong gyul johe",
-        length: johe_gyul_year
+    res.render('johe', {
+        johe_year: johe_gyul_year
     })
 });
 
