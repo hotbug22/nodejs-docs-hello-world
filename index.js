@@ -1,37 +1,26 @@
-/*var http = require('http');
-
-var NodeClass = require('./NodeClass');
-var nodeClass = new NodeClass();
-
-nodeClass.setMessage('Good to See U!');
-console.log(nodeClass.getMessage());
-
-var server = http.createServer(function(request, response) {
-
-    response.writeHead(200, {"Content-Type": "text/plain;charset=utf-8"})
-    response.end("you can make it!!!");
-
-s
-});
-
-var port = process.env.PORT || 1337;
-server.listen(port);
-
-console.log("Server running at http://localhost:%d", port);
-
-
-function sum (param1, param2, param3){
-    return param1 + param2 + param3;
-}
-*/
-//
-
 var express = require('express');
 var app = express();
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+
+//main page
 app.get('/', function(req, res){
     console.log('hello world');
     res.send('express success');
+});
+
+//get api by gyul year
+app.get('/:gyul_year', function(req, res){
+    
+    var johe_gyul_year = req.params.gyul_year;
+    console.log(johe_gyul_year);
+  
+    res.render('index', {
+        title: "yudong gyul johe",
+        length: johe_gyul_year
+    })
 });
 
 var server = app.listen(1337,function(){
