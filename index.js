@@ -1,5 +1,11 @@
 var express = require('express');
+var bodyparser = require('body-parser');
+
 var app = express();
+app.use(bodyparser.urlencoded({extended:false}));
+app.use("/public",express.static(__dirname + "/public"));
+
+
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -12,9 +18,9 @@ app.get('/', function(req, res){
 });
 
 //get api by gyul year
-app.get('/:gyul_year', function(req, res){
+app.get('/johe_g', function(req, res){
     
-    var johe_gyul_year = req.params.gyul_year;
+    var johe_gyul_year = req.query.gyul_year;
     console.log(johe_gyul_year);
   
     res.render('johe', {

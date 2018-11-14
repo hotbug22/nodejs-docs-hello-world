@@ -1,9 +1,9 @@
 <html>
   <head>
   <title>유동성 결산일정</title>
-    <form id="frm" action="https://best-for-you-app-15101850.azurewebsites.net" method="GET">
+    <form id="frm" action="https://best-for-you-app-15101850.azurewebsites.net/johe_g" method="GET">
         결산기간:
-        <input type="number" id="year_pick"
+        <input type="number" id="year_pick" name="gyul_year"
             min="2018"
             max="2050"
             value=<%=johe_year%>
@@ -12,7 +12,7 @@
     </form>
   </head>
   <body>
-    <iframe style = "width: 100%;height: 100%;" src="<%=johe_year%>.pdf">
-    </iframe>
+    <object data = "/public/<%=johe_year%>.pdf" type="application/pdf" height="1000px" width="100%">
+    </object>
   </body>
 </html>

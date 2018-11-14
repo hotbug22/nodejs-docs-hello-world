@@ -16,6 +16,7 @@
         "build": "pkg ."
     },
     "dependencies": {
+        "body-parser": "^1.18.3",
         "ejs": "^2.6.1",
         "express": "^4.16.4",
         "pkg": "^4.3.4"
