@@ -21,6 +21,7 @@ app.get('/', function(req, res){
 app.get('/johe_g', function(req, res){
     
     var johe_gyul_year = req.query.gyul_year;
+    var orgin_gyul_year = req.query.gyul_year;
     console.log(johe_gyul_year);
 
     if(johe_gyul_year != 2018 &&
@@ -34,7 +35,8 @@ app.get('/johe_g', function(req, res){
 
   
     res.render('johe', {
-        johe_year: johe_gyul_year
+        johe_year: johe_gyul_year ,
+        orgin_gyul_year: orgin_gyul_year
     })
 });
 
