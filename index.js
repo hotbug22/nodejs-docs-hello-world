@@ -22,6 +22,16 @@ app.get('/johe_g', function(req, res){
     
     var johe_gyul_year = req.query.gyul_year;
     console.log(johe_gyul_year);
+
+    if(johe_gyul_year != 2018 &&
+        johe_gyul_year != 2019 &&
+        johe_gyul_year != 2037 &&
+        johe_gyul_year != 2043){
+        
+        johe_gyul_year = 9999;
+
+    }
+
   
     res.render('johe', {
         johe_year: johe_gyul_year
